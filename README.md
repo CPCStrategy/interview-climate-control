@@ -8,26 +8,24 @@ Your mission should you choose to accept it, is to build a GraphQL API using Rub
 Climate Control aims to solve the problem of figuring out which cities all over the world are currently have a comfortable climate, so that it's easy for people to decide which cities they would like to visit today.
 
 ## The challenge
-We would like you to deliver a proof-of-concept for the back end of this project. Spending no more than **5 hours**: 
+We would like you to deliver a proof-of-concept for the backend of this project. Spending no more than **5 hours**:
 - create a Github/Gitlab repo for your project
-- create the basic structure of a Ruby on Rails project that will provide a GraphQL API
-- create a Readme file with instructions on setting up and running the project. Include all requirements to build/run from scratch.
-- test the resulting API to ensure correctness against requirements 
+- create an application that will provide a GraphQL API satisfying the project requirements below
+- create a `README.md` file in the root of the repository with instructions on setting up and running the project. Include all requirements to build/run from scratch.
+- test the resulting API to ensure correctness against requirements
 
 We have provided the expected GraphQL schema. You may modify or extend the schema if you feel it better solves the problem.
 
 We have checked in a minified list of cities to search against that provide the city identifier for the OpenWeather API. Normally, this would get loaded into a database lookup table but to reduce the complexity of proof of concept, all operations can be performed in-memory with no database or caching layer required.
 
-We have also provided the tests that we expect to be able to execute against the running API to ensure correctness.
+We have also provided the tests queries that we expect to be able to execute against the running API to ensure correctness.
 
-At the end of the project, please add a section to your Readme file that talks about any issues you encountered and directions you might have taken the project if you were not time constrained.  If you have any questions that aren't addressed by this readme, please reach out to the Hiring Manager.
-
+At the end of the project, please add a section to your `README.md` file that talks about any issues you encountered and directions you might have taken the project if you were not time constrained. If you have any questions that aren't addressed by this readme, please reach out to the Hiring Manager.
 
 
 ## Project Requirements
-- Ruby >= 3.0
-- Rails >= 6.0
-- [GraphQL Ruby](https://graphql-ruby.org/)
+- Web application that exposes a GraphQL API
+- Instructions for running application and hitting GraphQL API
 - Get weather data from [Open Weather Maps API](https://openweathermap.org/api)
     - Get an API key by [signing up](https://openweathermap.org/home/sign_up)
 
@@ -52,44 +50,15 @@ At a minimum this is what your final GraphQL schema should look like
     country: String!
     id: Int!
     name: String!
-    sunrise: Datetime!
-    sunset: Datetime!
-    timeZone: Int!
-  }
-  type WeatherDescription {
-    description: String!
-    iconCode: String!
-    id: Int!
-    main: String!
-  }
-  type Wind {
-    degrees: Int!
-    gustSpeed: Float!
-    speed: Float!
-  }
-  type Rain {
-    volOneHour: Int!
-    volThreeHours: Int!
-  }
-  type Snow {
-    volOneHour: Int!
-    volThreeHours: Int!
+    state: String
   }
   type OneDayWeather {
-    cloudPer: Int!
     feelsLike: Float!
     groundLevel: Int
     hot: Boolean!
-    humidity: Int!
-    pressure: Int
-    rain: Rain
-    seaLevel: Int
-    snow: Snow
     temp: Float!
     tempMax: Float!
     tempMin: Float!
-    visibility: Int!
-    weatherDescription: WeatherDescription
     wind: Wind
   }
   type CityWeatherOneDay {
@@ -137,41 +106,13 @@ query {
       id
       name
       state
-      sunrise
-      sunset
-      timeZone
     }
     weather {
-      cloudPer
       feelsLike
-      groundLevel
       hot
-      humidity
-      pressure
-      rain {
-        volOneHour
-        volThreeHours
-      }
-      seaLevel
-      snow {
-        volOneHour
-        volThreeHours
-      }
       temp
       tempMax
       tempMin
-      visibility
-      weatherDescription {
-        description
-        iconCode
-        id
-        main
-      }
-      wind {
-        speed
-        degrees
-        gustSpeed
-      }
     }
   }
 }
