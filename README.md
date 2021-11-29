@@ -8,7 +8,7 @@ Your mission should you choose to accept it, is to build a GraphQL API using Rub
 Climate Control aims to solve the problem of figuring out which cities all over the world are currently have a comfortable climate, so that it's easy for people to decide which cities they would like to visit today.
 
 ## The challenge
-We would like you to deliver a proof-of-concept for the backend of this project. Spending no more than **5 hours**:
+We would like you to deliver a proof-of-concept for the backend of this project. Spending no more than **3 hours**:
 - create a Github/Gitlab repo for your project
 - create an application that will provide a GraphQL API satisfying the project requirements below
 - create a `README.md` file in the root of the repository with instructions on setting up and running the project. Include all requirements to build/run from scratch.
