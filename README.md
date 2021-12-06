@@ -59,7 +59,6 @@ At a minimum this is what your final GraphQL schema should look like
     temp: Float!
     tempMax: Float!
     tempMin: Float!
-    wind: Wind
   }
   type CityWeatherOneDay {
     city: City!
